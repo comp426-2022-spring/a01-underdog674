@@ -8,7 +8,7 @@ args["port"]
 
 const port = args.port || process.env.PORT || 3000
 
-fs.readFile("./lol/index.html","utf8",(err,data)=>{
+fs.readFile("./www/index.html","utf8",(err,data)=>{
 
 if(err){
     console.error(err)
@@ -20,7 +20,7 @@ if(err){
 const server = http.createServer((req,res)=>{
 res.statusCode = 200
 res.setHeader('Content-Type', 'text/html')
-res.end('<h1>Hello, World!</h1>')
+res.end(data)
 })
 
 server.listen(port,()=>{
